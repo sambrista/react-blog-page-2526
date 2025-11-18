@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import type { Entrada } from "./types/entrada";
 import BlogPost from "./components/BlogPost.tsx";
 
+
 const App = () => {
   const entrada: Entrada = entradas[0];
 
