@@ -9,7 +9,7 @@ function RelatedPosts( {entradasRelacionadas} : RelatedPostsProps) {
         <h3>Noticias relacionadas</h3>
         <div className="related-posts__list">
             {entradasRelacionadas.map(entrada => (
-            <div className="post-card">
+            <div key={entrada.id} className="post-card">
                 <img className="post-card__image"
                      alt={entrada.titular}
                      src={entrada.imagen} />
