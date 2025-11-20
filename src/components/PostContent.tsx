@@ -1,4 +1,7 @@
 import type { Entrada } from "../types/entrada";
+import LikesButton from "./LikesButton";
+import StarButton from "./StarButton";
+import "./PostContent.css";
 
 interface PostContentProps {
     entrada : Entrada
@@ -9,6 +12,7 @@ function PostContent( {entrada} : PostContentProps) {
   <h2 className="post-content__title">{entrada.titular}</h2>
   <img className="post-content__image" alt={entrada.titular} src={entrada.imagen} />
   <p className="post-content__text">{entrada.cuerpo}</p>
+  <div className="post-content__social"><StarButton /><LikesButton /></div>
 </div>)
 }
 

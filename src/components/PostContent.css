@@ -13,3 +13,13 @@
 .post-content__text {
   line-height: 1.6;
 }
+
+.post-content__social {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.post-content__social button {
+  border: 1px solid #bbb;
+}
