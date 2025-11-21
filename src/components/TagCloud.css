@@ -13,7 +13,9 @@
   cursor:pointer;
 }
 
-.etiqueta-seleccionada {
-  font-weight: bold;
+.tag-cloud__container span.etiqueta-seleccionada {
+  border: 2px solid #333;
+  color: #e9ecef;
+  background-color: #777;
 }
 

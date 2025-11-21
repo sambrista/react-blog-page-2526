@@ -1,23 +1,23 @@
-import { useState } from "react";
 import "./TagCloud.css"
 
 interface TagCloudProps {
-    etiquetas: string[]
+    etiquetas: string[],
+    etiquetasSeleccionadas: string[],
+    setEtiquetasSeleccionadas: React.Dispatch<React.SetStateAction<string[]>>
 }
-function TagCloud({etiquetas} : TagCloudProps) {
-    const [etiquetasSeleccionadas, setEtiquetasSeleccionadas] = useState<string[]>([]);
+
+function TagCloud({etiquetas, etiquetasSeleccionadas, setEtiquetasSeleccionadas} : TagCloudProps) {
     
-
-
     function handleClick(event: React.MouseEvent<HTMLSpanElement>) {
         let etiqueta :string;
         if (event.currentTarget.dataset.etiqueta != undefined) {
             etiqueta = event.currentTarget.dataset.etiqueta;
             if (!etiquetasSeleccionadas.includes(etiqueta)) {
                 setEtiquetasSeleccionadas([etiqueta, ...etiquetasSeleccionadas]);
+            } else {
+                setEtiquetasSeleccionadas(etiquetasSeleccionadas.filter((e) => e != etiqueta ));
             }
         }
-
     }
 
     return (
