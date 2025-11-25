@@ -1,5 +1,4 @@
 import type { Entrada } from "../types/entrada";
-import Carousel from "./Carousel";
 import Comments from "./Comments";
 import PostContent from "./PostContent";
 import RelatedPosts from "./RelatedPosts";
@@ -14,7 +13,6 @@ function BlogPost( {entradaMostrada, listadoEntradas} : BlogPostProps) {
     return (
     <article className="blog-post">
         <PostContent entrada={entradaMostrada} />
-        {entradaMostrada.galeria && entradaMostrada.galeria.length > 0 && <Carousel images={entradaMostrada.galeria} />}
         <Comments comentarios={entradaMostrada.comentarios} />
         <RelatedPosts entradasRelacionadas={entradasRelacionadas}/>
     </article>)
