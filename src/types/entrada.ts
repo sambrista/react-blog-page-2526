@@ -9,6 +9,7 @@ export type Entrada = {
     autor: Autor,
     categoria: string,
     etiquetas: string[],
+    galeria?: string[],
     comentarios: Comentario[],
     idsEntradasRelacionadas: number[]
   }

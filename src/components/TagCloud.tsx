@@ -8,7 +8,7 @@ interface TagCloudProps {
 
 function TagCloud({etiquetas, etiquetasSeleccionadas, setEtiquetasSeleccionadas} : TagCloudProps) {
     
-    function handleClick(event: React.MouseEvent<HTMLSpanElement>) {
+/*     function handleClick(event: React.MouseEvent<HTMLSpanElement>) {
         let etiqueta :string;
         if (event.currentTarget.dataset.etiqueta != undefined) {
             etiqueta = event.currentTarget.dataset.etiqueta;
@@ -18,6 +18,14 @@ function TagCloud({etiquetas, etiquetasSeleccionadas, setEtiquetasSeleccionadas}
                 setEtiquetasSeleccionadas(etiquetasSeleccionadas.filter((e) => e != etiqueta ));
             }
         }
+    } */
+
+    function handleClickAlternativo(etiqueta :string) {
+        if (!etiquetasSeleccionadas.includes(etiqueta)) {
+            setEtiquetasSeleccionadas([etiqueta, ...etiquetasSeleccionadas]);
+        } else {
+            setEtiquetasSeleccionadas(etiquetasSeleccionadas.filter((e) => e != etiqueta ));
+        }
     }
 
     return (
@@ -25,7 +33,8 @@ function TagCloud({etiquetas, etiquetasSeleccionadas, setEtiquetasSeleccionadas}
             <h3>Etiquetas</h3>
             <div className="tag-cloud__container">
                 {
-                    etiquetas.map((etiqueta) => <span className={etiquetasSeleccionadas.includes(etiqueta) ? "etiqueta-seleccionada": ""} data-etiqueta={etiqueta} onClick={handleClick} key={etiqueta}>#{etiqueta}</span>)
+                    //etiquetas.map((etiqueta) => <span className={etiquetasSeleccionadas.includes(etiqueta) ? "etiqueta-seleccionada": ""} data-etiqueta={etiqueta} onClick={handleClick} key={etiqueta}>#{etiqueta}</span>)
+                    etiquetas.map((etiqueta) => <span className={etiquetasSeleccionadas.includes(etiqueta) ? "etiqueta-seleccionada": ""} onClick={() => {handleClickAlternativo(etiqueta)}} key={etiqueta}>#{etiqueta}</span>)
                 }
             </div>
         </div>

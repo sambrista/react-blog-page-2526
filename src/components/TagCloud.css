@@ -4,18 +4,24 @@
 }
 
 .tag-cloud__container span {
-  background-color: #e9ecef;
-  padding: 5px 10px;
-  border-radius: 15px;
-  margin: 3px;
-  display: inline-block;
-  font-size: 0.9em;
-  cursor:pointer;
+  padding: 6px 12px;
+  margin: 4px;
+  border-radius: 20px;
+  border: 1px solid #999;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: white;
+  color: #999;
+}
+
+.tag-cloud__container span:hover {
+  background: #333;
 }
 
 .tag-cloud__container span.etiqueta-seleccionada {
-  border: 2px solid #333;
-  color: #e9ecef;
-  background-color: #777;
+  background: #4a7bd8;
+  color: white;
+  border-color: #4a7bd8;
+  box-shadow: 0 0 8px rgba(74, 123, 216, 0.6);
+  transform: translateY(-2px);
 }
-
