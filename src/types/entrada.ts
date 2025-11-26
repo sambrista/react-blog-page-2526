@@ -7,6 +7,7 @@ export type Entrada = {
     imagen: string,
     cuerpo: string,
     autor: Autor,
+    galeria?: string[],
     categoria: string,
     etiquetas: string[],
     comentarios: Comentario[],
