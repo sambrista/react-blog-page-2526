@@ -13,8 +13,8 @@ function Carousel( {imagenes} : CarouselProps ) {
   return (
     <div className="carousel-container">
       <CarouselImages imagenes={imagenes} indiceActivo={indiceActivo} />
-      <CarouselControls indiceActivo={indiceActivo} setIndiceActivo={setIndiceActivo} />
-      <CarouselIndicators />
+      <CarouselControls indiceActivo={indiceActivo} setIndiceActivo={setIndiceActivo} cantidadImagenes={imagenes.length}/>
+      <CarouselIndicators indiceActivo={indiceActivo} setIndiceActivo={setIndiceActivo} cantidadImagenes={imagenes.length}/>
     </div>
   );
 }

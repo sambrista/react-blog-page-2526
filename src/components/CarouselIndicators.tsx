@@ -1,9 +1,24 @@
-function CarouselIndicators() {
+interface CarouselIndicatorsProps {
+  indiceActivo: number,
+  setIndiceActivo: React.Dispatch<React.SetStateAction<number>>,
+  cantidadImagenes: number
+}
+
+function CarouselIndicators({ indiceActivo, setIndiceActivo, cantidadImagenes } : CarouselIndicatorsProps) {
+  function handleClick(numeroImagen: number) {
+    setIndiceActivo(numeroImagen);
+  }
+
+  const indicadores = []
+
+  for (let i = 0; i < cantidadImagenes; i++) {
+
+      indicadores.push(<span className={`indicator-dot ${indiceActivo == i && "active"}`} onClick={() => handleClick(i)}></span>)
+  }
+
   return (
     <div className="carousel-indicators">
-      <span className="indicator-dot "></span>
-      <span className="indicator-dot "></span>
-      <span className="indicator-dot active"></span>
+      {indicadores}
     </div>
   );
 }
