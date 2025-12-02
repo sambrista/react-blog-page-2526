@@ -1,20 +1,24 @@
-interface Props {
-  images: string[];
-  current: number;
+interface CarouselImagesProps {
+  imagenes: string[];
+  indiceActivo: number;
 }
 
-export default function CarouselImages({ images, current }: Props) {
+function CarouselImages({ imagenes, indiceActivo }: CarouselImagesProps) {
   return (
     <div className="carousel-images">
-      {images.map((img, index) => (
+      {imagenes.map((imagen, indice) => (
         <img
-          key={index}
-          src={img}
-          className={`carousel-image ${
-            index === current ? "active" : "inactive"
-          }`}
+          key={indice}
+          className={
+            indice == indiceActivo
+              ? "carousel-image active"
+              : "carousel-image inactive"
+          }
+          src={imagen}
         />
       ))}
     </div>
   );
 }
+
+export default CarouselImages;

@@ -1,23 +1,26 @@
-interface Props {
-  total: number;
-  current: number;
-  setCurrent: (i: number) => void;
+interface CarouselIndicatorsProps {
+  indiceActivo: number,
+  setIndiceActivo: React.Dispatch<React.SetStateAction<number>>,
+  cantidadImagenes: number
 }
 
-export default function CarouselIndicators({
-  total,
-  current,
-  setCurrent,
-}: Props) {
+function CarouselIndicators({ indiceActivo, setIndiceActivo, cantidadImagenes } : CarouselIndicatorsProps) {
+  function handleClick(numeroImagen: number) {
+    setIndiceActivo(numeroImagen);
+  }
+
+  const indicadores = []
+
+  for (let i = 0; i < cantidadImagenes; i++) {
+
+      indicadores.push(<span className={`indicator-dot ${indiceActivo == i && "active"}`} onClick={() => handleClick(i)}></span>)
+  }
+
   return (
     <div className="carousel-indicators">
-      {Array.from({ length: total }).map((_, i) => (
-        <span
-          key={i}
-          className={`indicator-dot ${i === current ? "active" : ""}`}
-          onClick={() => setCurrent(i)}
-        ></span>
-      ))}
+      {indicadores}
     </div>
   );
 }
+
+export default CarouselIndicators;

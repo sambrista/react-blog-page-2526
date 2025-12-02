@@ -20,7 +20,7 @@ function TagCloud({etiquetas, etiquetasSeleccionadas, setEtiquetasSeleccionadas}
         }
     } */
 
-    function handleClickAlternativo(etiqueta :string) {
+    function handleClick(etiqueta :string) {
         if (!etiquetasSeleccionadas.includes(etiqueta)) {
             setEtiquetasSeleccionadas([etiqueta, ...etiquetasSeleccionadas]);
         } else {
@@ -33,8 +33,12 @@ function TagCloud({etiquetas, etiquetasSeleccionadas, setEtiquetasSeleccionadas}
             <h3>Etiquetas</h3>
             <div className="tag-cloud__container">
                 {
-                    //etiquetas.map((etiqueta) => <span className={etiquetasSeleccionadas.includes(etiqueta) ? "etiqueta-seleccionada": ""} data-etiqueta={etiqueta} onClick={handleClick} key={etiqueta}>#{etiqueta}</span>)
-                    etiquetas.map((etiqueta) => <span className={etiquetasSeleccionadas.includes(etiqueta) ? "etiqueta-seleccionada": ""} onClick={() => {handleClickAlternativo(etiqueta)}} key={etiqueta}>#{etiqueta}</span>)
+                    // etiquetas.map((etiqueta) => <span className={etiquetasSeleccionadas.includes(etiqueta) ? "etiqueta-seleccionada": ""} data-etiqueta={etiqueta} onClick={handleClick} key={etiqueta}>#{etiqueta}</span>)
+                    etiquetas.map((etiqueta) => <span className={etiquetasSeleccionadas.includes(etiqueta) ? "etiqueta-seleccionada": ""}
+                                                      onClick={() => {handleClick(etiqueta)}}
+                                                      key={etiqueta}>
+                                                      #{etiqueta}
+                                                </span>)
                 }
             </div>
         </div>
