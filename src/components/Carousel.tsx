@@ -5,24 +5,28 @@ import CarouselImages from "./CarouselImages";
 import CarouselIndicators from "./CarouselIndicators";
 
 interface CarouselProps {
-  imagenes: string[];
+  imagenes: string[],
+  showIndicators?: boolean;
+  showControls?: boolean;
+  ciclo?: boolean;
 }
 
-function Carousel({ imagenes }: CarouselProps) {
+function Carousel({ imagenes, showControls = true, showIndicators = true, ciclo = true}: CarouselProps) {
   const [indiceActivo, setIndiceActivo] = useState(0);
   return (
     <div className="carousel-container">
       <CarouselImages imagenes={imagenes} indiceActivo={indiceActivo} />
-      <CarouselControls
+      { showControls &&      <CarouselControls
         indiceActivo={indiceActivo}
         setIndiceActivo={setIndiceActivo}
         cantidadImagenes={imagenes.length}
-      />
-      <CarouselIndicators
+        ciclo={ciclo}
+      /> }
+      { showIndicators && <CarouselIndicators
         indiceActivo={indiceActivo}
         setIndiceActivo={setIndiceActivo}
         cantidadImagenes={imagenes.length}
-      />
+      /> }
     </div>
   );
 }

@@ -19,7 +19,7 @@ function PostContent({ entrada }: PostContentProps) {
       />
       <p className="post-content__text">{entrada.cuerpo}</p>
       {entrada.galeria && entrada.galeria.length > 0 && (
-        <Carousel imagenes={entrada.galeria} />
+        <Carousel imagenes={entrada.galeria} showIndicators={false} ciclo={false}/>
       )}
       <div className="post-content__social">
         <StarButton />
