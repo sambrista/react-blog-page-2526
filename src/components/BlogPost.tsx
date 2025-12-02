@@ -13,7 +13,7 @@ function BlogPost( {entradaMostrada, listadoEntradas} : BlogPostProps) {
     return (
     <article className="blog-post">
         <PostContent entrada={entradaMostrada} />
-        <Comments comentarios={entradaMostrada.comentarios} />
+        <Comments listaComentarios={entradaMostrada.comentarios} />
         <RelatedPosts entradasRelacionadas={entradasRelacionadas}/>
     </article>)
 }
