@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function LikesButton() {
-    const [likes, setLikes] = useState(0);
+    const [likes, setLikes] = useState(Number.parseInt(localStorage.getItem("likes") ?? "0"));
+
+    useEffect(() => {
+        localStorage.setItem("likes", likes.toString());
+    },[likes])
 
     function handleClick() {
         setLikes(likes + 1);

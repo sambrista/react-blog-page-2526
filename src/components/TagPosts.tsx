@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import type { Entrada } from "../types/entrada";
 import PostCard from "./PostCard";
 import "./RelatedPosts.css"
@@ -8,6 +9,10 @@ interface TagPostsProps {
 }
 
 function TagPosts( {entradas, etiquetas} : TagPostsProps) {
+    useEffect(() => {
+        console.log("Renderizado en " + new Date().toLocaleString());
+    });
+    
     return (<section className="tag-posts">
         { etiquetas.length > 0?
         <>
